@@ -6,6 +6,7 @@ namespace NewDay.Extensions.FunctionsValidationFilter;
 
 internal static class ValidatorInspector
 {
+    [Obsolete]
     public static bool TryGetRules(Type type, [NotNullWhen(true)] out Type? validatingType, [NotNullWhen(true)] out IEnumerable<IValidationRule>? rules)
     {
         if (type is null) throw new ArgumentNullException(nameof(type));
@@ -24,7 +25,8 @@ internal static class ValidatorInspector
                     }
                     catch (Exception ex)
                     {
-                        Debug.Fail(ex.Message);
+                        Debug.WriteLine(ex.Message);
+                        break;
                     }
                 }
             }

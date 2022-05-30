@@ -1,10 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using FluentValidation;
+﻿using FluentValidation;
 using NewDay.Extensions.FunctionsValidationFilter.Rules;
 
 namespace NewDay.Extensions.FunctionsValidationFilter;
 
-internal class SchemaMapper
+internal class SchemaMapper : ISchemaMapper
 {
     private readonly IRulesMapper _ruleMapper;
 
@@ -15,21 +14,17 @@ internal class SchemaMapper
 
     public (string Name, Dictionary<string, List<Rule>> Fields) Map(Type type, IEnumerable<IValidationRule> rules)
     {
-        var schemaName = CamelCase(type.Name);
+        var schemaName = StringHelper.CamelCase(type.Name);
 
-        // TODO: do we need GroupBy? (can it have duplicates?)
-        var mappedRules = rules.Select(_ruleMapper.Map).ToDictionary(x => x.Name, x => x.Rules.ToList());
+        var mappedRules = rules
+            .Where(x => x.PropertyName is not null)
+            .Select(_ruleMapper.Map)
+            .GroupBy(x => x.Name)
+            .ToDictionary(
+                x => x.Key,
+                x => x.SelectMany(z => z.Rules).ToList()
+            );
 
         return (schemaName, mappedRules);
     }
-
-    private string CamelCase(string str)
-    {
-        if (str.Length > 1)
-        {
-            return char.ToLowerInvariant(str[0]) + str[1..];
-        }
-        return str.ToLowerInvariant();
-    }
-
 }

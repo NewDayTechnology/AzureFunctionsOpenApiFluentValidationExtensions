@@ -1,0 +1,11 @@
+<Project>
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+    <AssemblyName>Newday.Extensions.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>NewDay.Extensions.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+</Project>
