@@ -9,6 +9,14 @@ Azure/azure-functions-openapi-extension#344
 
 Rules can get tricky to convert and there are hard to solve problems (e.g. translating regex dialect) so we should take a pragmatic approach of including only what is easy to port programmatically, otherwise, a manual approach would be better (eventually this could become a validation library to check that most of the rules in the spec match the one in FluentValidation to avoid rules getting out of sync).
 
+## Quick Start
+
+Add to your OpenApi configuration:
+
+```csharp
+DocumentFilters.AddFunctionsValidationFilter<Startup>();
+```
+
 ## Usage
 
 In your custom object to define the OpenApi configuration, use `AddFunctionsValidationFilter` on the `DocumentFilters` property.
