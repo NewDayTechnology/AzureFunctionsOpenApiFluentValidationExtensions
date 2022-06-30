@@ -11,6 +11,12 @@ Rules can get tricky to convert and there are hard to solve problems (e.g. trans
 
 ## Quick Start
 
+Add to your project:
+
+```xml
+<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.8" />
+```
+
 Add to your OpenApi configuration:
 
 ```csharp
@@ -18,6 +24,12 @@ DocumentFilters.AddFunctionsValidationFilter<Startup>();
 ```
 
 ## Usage
+
+Add to your project:
+
+```xml
+<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.8" />
+```
 
 In your custom object to define the OpenApi configuration, use `AddFunctionsValidationFilter` on the `DocumentFilters` property.
 
@@ -51,6 +63,12 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
 ```
 
 ## Advanced Usage
+
+Add to your project:
+
+```xml
+<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter" Version="0.1.8" />
+```
 
 If you are not using DI in Azure Functions or using static Functions, you would need to manually register all the validators you are using.
 

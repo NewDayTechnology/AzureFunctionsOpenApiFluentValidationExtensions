@@ -1,4 +1,4 @@
-# Platform Acquisition API - License
+# License
 
 Copyright (c) New Day Ltd. - All rights reserved.
 
