@@ -37,7 +37,9 @@ jobs:
 
   pack:
     runs-on: ubuntu-latest
-    needs: build
+    needs: 
+      - format
+      - build
     # if: github.event_name == 'push'
     steps:
     - name: Checkout
