@@ -9,3 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+      time: "08:00"
+      timezone: "Europe/London"
+    labels:
+      - ":game_die: dependencies"
+      - ":robot: bot"
+    ignore:
+      - dependency-name: "FluentValidation"
