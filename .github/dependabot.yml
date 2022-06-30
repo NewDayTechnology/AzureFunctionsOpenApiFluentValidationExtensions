@@ -14,5 +14,7 @@ updates:
     labels:
       - ":game_die: dependencies"
       - ":robot: bot"
+    open-pull-requests-limit: 10
     ignore:
       - dependency-name: "FluentValidation"
+      - dependency-name: "FluentValidation.DependencyInjectionExtensions"
