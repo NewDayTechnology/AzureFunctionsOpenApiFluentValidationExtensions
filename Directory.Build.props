@@ -4,8 +4,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>10</LangVersion>
-    <AssemblyName>Newday.Extensions.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>NewDay.Extensions.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AssemblyName>NewDay.Extensions.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(AssemblyName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
 </Project>

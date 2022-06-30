@@ -1,4 +1,4 @@
-# Platform Acquisition API - How to Contribute
+# How to Contribute
 
 ## Code Styles
 
