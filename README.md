@@ -1,13 +1,16 @@
 # FunctionsValidationFilter
 
-Load FluentValidation rules at runtime and it decorates the schema generator with all rules that can be translated in the OpenApi spec.
+Decorates the [OpenApi Specification](https://swagger.io/specification/) generated using [Azure Functions OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) with [FluentValidation](https://docs.fluentvalidation.net/en/latest/) rules loaded at runtime.
 
 ## Motivation
 
-Currently, the Spec generator in the Microsoft library is not open for extension but there is already an open PR to allow for this. If it doesn’t get merged, it will require working with a fork or internal package.
-Azure/azure-functions-openapi-extension#344
+The recommended library for generating the OpenAPI specification for Azure Functions is [Azure Functions OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension). While the library can annotate the model when using `Data Annotations` it doesn't support [FluentValidation](https://docs.fluentvalidation.net/en/latest/).
 
-Rules can get tricky to convert and there are hard to solve problems (e.g. translating regex dialect) so we should take a pragmatic approach of including only what is easy to port programmatically, otherwise, a manual approach would be better (eventually this could become a validation library to check that most of the rules in the spec match the one in FluentValidation to avoid rules getting out of sync).
+As `FluentValidation` is a widely used library for building strongly-typed validation rules, this package fills the gap by decorating the `OpenAPI Specification` with the appropriate constraints for HTTP request models, based on the validation rules. It also allows to define rules for HTTP parameters in URLs (see [Advanced Usage](#advanced-usage)).
+
+## Limitations
+
+Currently, only basic rules are supported and the regex dialect is not translated.
 
 ## Quick Start
 
