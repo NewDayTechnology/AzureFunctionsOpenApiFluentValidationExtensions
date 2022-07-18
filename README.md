@@ -102,3 +102,15 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
     };
 }
 ```
+
+## Contributing
+
+### Handling new rules
+
+1. Implement a new rule in [`FunctionsValidationFilter.Rules`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/tree/main/src/FunctionsValidationFilter/Rules) that extend [`Rule`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/blob/main/src/FunctionsValidationFilter/Rules/Rule.cs) and define the required properties. This represents an internal representation of a rule.
+
+1. Add a new case in [`FunctionsValidationFilter.ValidatorMapper`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/blob/main/src/FunctionsValidationFilter/ValidatorMapper.cs) that map from a `FluentValidation` type of a rule to the new modeled rule.
+
+1. Extend [`FunctionsValidationFilter.FunctionsValidationDocumentFilter`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/blob/main/src/FunctionsValidationFilter/FunctionsValidationDocumentFilter.cs):
+    1. Add a new case in the `ApplySchemas` method for the new rule to set the necessary properties of a field of a schema, based on the rule.
+    1. Add a new case in the `ApplySchemasToOperations` method for the new rule to set the necessary properties of a parameter of an operation, based on the rule.
