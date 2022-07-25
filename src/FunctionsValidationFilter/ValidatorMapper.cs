@@ -33,7 +33,7 @@ internal class ValidatorMapper : IValidatorMapper
     {
         if (validator.Name == "GreaterThanValidator")
         {
-            var valueToCompare = ((IComparisonValidator) validator).ValueToCompare;
+            var valueToCompare = ((IComparisonValidator)validator).ValueToCompare;
             if (valueToCompare is int)
             {
                 return new GreaterThanRule(Convert.ToInt32(valueToCompare));
@@ -41,7 +41,7 @@ internal class ValidatorMapper : IValidatorMapper
         }
         else if (validator.Name == "LessThanValidator")
         {
-            var valueToCompare = ((IComparisonValidator) validator).ValueToCompare;
+            var valueToCompare = ((IComparisonValidator)validator).ValueToCompare;
             if (valueToCompare is int)
             {
                 return new LessThanRule(Convert.ToInt32(valueToCompare));
