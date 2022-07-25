@@ -4,7 +4,7 @@ using NewDay.Extensions.FunctionsValidationFilter.Rules;
 
 namespace NewDay.Extensions.FunctionsValidationFilter.Tests;
 
-public partial class SchemaMapperTest
+public class SchemaMapperTest
 {
     private readonly Mock<IRulesMapper> _rulesMapperMock;
     private readonly SchemaMapper _mapper;

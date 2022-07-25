@@ -43,13 +43,52 @@ public class FunctionsValidationDocumentFilter : IDocumentFilter
                         switch (rule)
                         {
                             case NotEmptyRule:
+                            case NotNullRule:
                                 schema.Required.Add(field.Key);
                                 break;
                             case ExactLengthRule exactLengthRule:
                                 prop.MaxLength = prop.MinLength = exactLengthRule.Length;
                                 break;
+                            case MaxLengthRule maxLengthRule:
+                                prop.MaxLength = maxLengthRule.Max;
+                                break;
+                            case MinLengthRule minLengthRule:
+                                prop.MinLength = minLengthRule.Min;
+                                break;
+                            case LengthRangeRule lengthRangeRule:
+                                prop.MinLength = lengthRangeRule.Min != 0 ? lengthRangeRule.Min : null;
+                                prop.MaxLength = lengthRangeRule.Max != 0 ? lengthRangeRule.Max : null;
+                                break;
+                            case GreaterThanRule greaterThanRule:
+                                prop.Minimum = greaterThanRule.ValueToCompare;
+                                prop.ExclusiveMinimum = true;
+                                break;
+                            case GreaterThanOrEqualRule greaterThanOrEqualRule:
+                                prop.Minimum = greaterThanOrEqualRule.ValueToCompare;
+                                break;
+                            case LessThanRule lessThanRule:
+                                prop.Maximum = lessThanRule.ValueToCompare;
+                                prop.ExclusiveMaximum = true;
+                                break;
+                            case LessThanOrEqualRule lessThanOrEqualRule:
+                                prop.Maximum = lessThanOrEqualRule.ValueToCompare;
+                                break;
+                            case InclusiveBetweenRule inclusiveBetweenRule:
+                                prop.Minimum = inclusiveBetweenRule.Min;
+                                prop.Maximum = inclusiveBetweenRule.Max;
+                                break;
+                            case ExclusiveBetweenRule exclusiveBetweenRule:
+                                prop.Minimum = exclusiveBetweenRule.Min;
+                                prop.ExclusiveMinimum = true;
+                                prop.Maximum = exclusiveBetweenRule.Max;
+                                prop.ExclusiveMaximum = true;
+                                break;
                             case RegularExpressionRule regularExpressionRule:
                                 prop.Pattern = regularExpressionRule.Regex;
+                                break;
+                            case ScalePrecisionRule scalePrecisionRule:
+                                prop.Description =
+                                    $"Must not be more than {scalePrecisionRule.Precision} digits in total, with allowance for {scalePrecisionRule.Scale} decimals";
                                 break;
                         }
                     }
