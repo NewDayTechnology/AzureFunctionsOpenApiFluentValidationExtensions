@@ -17,7 +17,7 @@ Currently, only basic rules are supported and the regex dialect is not translate
 Add to your project:
 
 ```xml
-<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.8" />
+<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.19" />
 ```
 
 Add to your OpenApi configuration:
@@ -31,7 +31,7 @@ DocumentFilters.AddFunctionsValidationFilter<Startup>();
 Add to your project:
 
 ```xml
-<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.8" />
+<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.19" />
 ```
 
 In your custom object to define the OpenApi configuration, use `AddFunctionsValidationFilter` on the `DocumentFilters` property.
@@ -70,7 +70,7 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
 Add to your project:
 
 ```xml
-<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter" Version="0.1.8" />
+<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter" Version="0.1.19" />
 ```
 
 If you are not using DI in Azure Functions or using static Functions, you would need to manually register all the validators you are using.
