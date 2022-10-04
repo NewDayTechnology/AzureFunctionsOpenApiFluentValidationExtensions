@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using FluentValidation.Internal;
 using FluentValidation.Validators;
 using NewDay.Extensions.FunctionsValidationFilter.Rules;
@@ -23,30 +24,52 @@ internal class ValidatorMapper : IValidatorMapper
             IGreaterThanOrEqualValidator validator => new GreaterThanOrEqualRule(Convert.ToInt32(validator.ValueToCompare)),
             ILessThanOrEqualValidator validator => new LessThanOrEqualRule(Convert.ToInt32(validator.ValueToCompare)),
             IComparisonValidator validator => SetIComparisonValidatorRules(validator),
+            IPropertyValidator validator => SetIPropertyValidatorRules(validator),
             _ => null
         };
 
         return rule is not null;
     }
 
-    private static Rule? SetIComparisonValidatorRules(IPropertyValidator validator)
+    private static Rule? SetIComparisonValidatorRules(IComparisonValidator validator)
     {
-        if (validator.Name == "GreaterThanValidator")
+        var type = validator.GetType();
+
+        if (!type.IsGenericType) return null;
+
+        if (type.GetGenericTypeDefinition() == typeof(GreaterThanValidator<,>))
         {
-            var valueToCompare = ((IComparisonValidator)validator).ValueToCompare;
-            if (valueToCompare is int)
+            var valueToCompare = validator.ValueToCompare;
+            if (valueToCompare is int value)
             {
-                return new GreaterThanRule(Convert.ToInt32(valueToCompare));
+                return new GreaterThanRule(value);
             }
         }
-        else if (validator.Name == "LessThanValidator")
+        else if (type.GetGenericTypeDefinition() == typeof(LessThanValidator<,>))
         {
-            var valueToCompare = ((IComparisonValidator)validator).ValueToCompare;
-            if (valueToCompare is int)
+            var valueToCompare = validator.ValueToCompare;
+            if (valueToCompare is int value)
             {
-                return new LessThanRule(Convert.ToInt32(valueToCompare));
+                return new LessThanRule(value);
             }
         }
+
+        return null;
+    }
+
+    private static Rule? SetIPropertyValidatorRules(IPropertyValidator validator)
+    {
+        var type = validator.GetType();
+
+        if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(ScalePrecisionValidator<>))
+        {
+            if (type.GetProperty(nameof(ScalePrecisionValidator<object>.Scale))?.GetValue(validator) is int scale
+                && type.GetProperty(nameof(ScalePrecisionValidator<object>.Precision))?.GetValue(validator) is int precision)
+            {
+                return new ScalePrecisionRule(scale, precision);
+            }
+        }
+
 
         return null;
     }
