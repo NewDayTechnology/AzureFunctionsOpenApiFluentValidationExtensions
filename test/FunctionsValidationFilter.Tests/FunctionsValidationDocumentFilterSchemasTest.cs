@@ -94,7 +94,7 @@ namespace NewDay.Extensions.FunctionsValidationFilter.Tests
 
             Act();
 
-            Assert.Equal("Something!\nMust not be more than 6 digits in total, with allowance for 2 decimals.", _property.Description);
+            Assert.Equal("Something!\n\nMust not be more than 6 digits in total, with allowance for 2 decimals.", _property.Description);
         }
 
         private void Act()

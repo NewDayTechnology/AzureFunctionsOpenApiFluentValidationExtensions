@@ -161,7 +161,8 @@ public class FunctionsValidationDocumentFilter : IDocumentFilter
         }
         else
         {
-            schema.Description += "\n" + description;
+            // SwaggerUI render \n\n as new lines.
+            schema.Description += "\n\n" + description;
         }
     }
 }
