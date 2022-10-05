@@ -191,6 +191,21 @@ public class ValidatorMapperTest
         Assert.Equal(".*", rule.Regex);
     }
 
+    [Fact]
+    public void ScalePrecisionRule()
+    {
+        // Arrange
+        var component = CreateDecimalComponent(x => x.ScalePrecision(2, 6));
+
+        // Act
+        _mapper.TryMap(component, out var result);
+
+        // Assert
+        var rule = Assert.IsType<ScalePrecisionRule>(result);
+        Assert.Equal(2, rule.Scale);
+        Assert.Equal(6, rule.Precision);
+    }
+
     private static IRuleComponent CreateStringComponent(Action<IRuleBuilderInitial<Sample, string?>> action)
     {
         var validator = new SampleValidator(action).First();
@@ -203,10 +218,17 @@ public class ValidatorMapperTest
         return validator.Components.First();
     }
 
+    private static IRuleComponent CreateDecimalComponent(Action<IRuleBuilderInitial<Sample, decimal?>> action)
+    {
+        var validator = new SampleValidator(action).First();
+        return validator.Components.First();
+    }
+
     public class Sample
     {
         public string? MyStringProperty { get; set; }
         public int? MyIntProperty { get; set; }
+        public decimal? MyDecimalProperty { get; set; }
     }
 
     public class SampleValidator : AbstractValidator<Sample>
@@ -219,6 +241,11 @@ public class ValidatorMapperTest
         public SampleValidator(Action<IRuleBuilderInitial<Sample, int?>> action)
         {
             action(RuleFor(request => request.MyIntProperty));
+        }
+
+        public SampleValidator(Action<IRuleBuilderInitial<Sample, decimal?>> action)
+        {
+            action(RuleFor(request => request.MyDecimalProperty));
         }
     }
 }

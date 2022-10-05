@@ -38,6 +38,9 @@ public class FunctionsValidationDocumentFilter : IDocumentFilter
                 foreach (var field in item.Value)
                 {
                     var prop = schema.Properties[field.Key];
+
+                    if (prop is null) continue;
+
                     foreach (var rule in field.Value)
                     {
                         switch (rule)
@@ -87,8 +90,8 @@ public class FunctionsValidationDocumentFilter : IDocumentFilter
                                 prop.Pattern = regularExpressionRule.Regex;
                                 break;
                             case ScalePrecisionRule scalePrecisionRule:
-                                prop.Description =
-                                    $"Must not be more than {scalePrecisionRule.Precision} digits in total, with allowance for {scalePrecisionRule.Scale} decimals";
+                                AppendDescription(prop,
+                                    $"Must not be more than {scalePrecisionRule.Precision} digits in total, with allowance for {scalePrecisionRule.Scale} decimals.");
                                 break;
                         }
                     }
@@ -148,5 +151,18 @@ public class FunctionsValidationDocumentFilter : IDocumentFilter
         }
 
         throw new Exception($"Operation '{v}' is not present.");
+    }
+
+    private void AppendDescription(OpenApiSchema schema, string description)
+    {
+        if (string.IsNullOrEmpty(schema.Description))
+        {
+            schema.Description = description;
+        }
+        else
+        {
+            // SwaggerUI render \n\n as new lines.
+            schema.Description += "\n\n" + description;
+        }
     }
 }

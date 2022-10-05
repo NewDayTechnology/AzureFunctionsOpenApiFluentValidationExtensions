@@ -76,6 +76,27 @@ namespace NewDay.Extensions.FunctionsValidationFilter.Tests
             Act();
         }
 
+        [Fact]
+        public void ShouldSetDescriptionForScalePrecisionRuleToSchema()
+        {
+            _rules.Add(new ScalePrecisionRule(2, 6));
+
+            Act();
+
+            Assert.Equal("Must not be more than 6 digits in total, with allowance for 2 decimals.", _property.Description);
+        }
+
+        [Fact]
+        public void ShouldAppendDescriptionForScalePrecisionRuleToSchema()
+        {
+            _property.Description = "Something!";
+            _rules.Add(new ScalePrecisionRule(2, 6));
+
+            Act();
+
+            Assert.Equal("Something!\n\nMust not be more than 6 digits in total, with allowance for 2 decimals.", _property.Description);
+        }
+
         private void Act()
         {
             var fixture = BuildFixture();
