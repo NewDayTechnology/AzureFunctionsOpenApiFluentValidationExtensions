@@ -21,7 +21,7 @@ public class ValidatorInspectorTest
         var result = ValidatorInspector.TryGetRules(typeof(SampleValidator), out var _, out var rules);
 
         Assert.True(result);
-        var rule = Assert.Single(rules);
+        var rule = Assert.Single(rules!);
         Assert.Equal("MyProperty", rule.PropertyName);
         var component = Assert.Single(rule.Components);
         Assert.IsType<NotEmptyValidator<Sample, string>>(component.Validator);
