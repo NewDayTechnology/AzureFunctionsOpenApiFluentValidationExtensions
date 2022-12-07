@@ -195,7 +195,7 @@ public class ValidatorMapperTest
     public void ScalePrecisionRule()
     {
         // Arrange
-        var component = CreateDecimalComponent(x => x.ScalePrecision(2, 6));
+        var component = CreateDecimalComponent(x => x.PrecisionScale(6, 2, true));
 
         // Act
         _mapper.TryMap(component, out var result);
