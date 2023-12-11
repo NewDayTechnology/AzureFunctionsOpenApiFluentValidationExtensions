@@ -1,6 +1,4 @@
-﻿using System.Collections.Concurrent;
-using System.Diagnostics;
-using System.Text.Json;
+﻿using System.Diagnostics;
 using FluentValidation;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
@@ -64,6 +62,7 @@ public static class OpenApiConfigurationOptionsExtensions
         var services = new ServiceCollection();
         AddValidators<T>(services);
         configureServices?.Invoke(services);
+        services.AddOptions<FunctionsValidationFilterOptions>();
         if (configureOptions is not null) services.Configure(configureOptions);
 
         using var serviceProvider = services.BuildServiceProvider();
