@@ -16,5 +16,6 @@ updates:
       - ":robot: bot"
     open-pull-requests-limit: 10
     ignore:
+      - dependency-name: "Moq" ## avoid Moq 4.20+
       - dependency-name: "FluentValidation"
       - dependency-name: "FluentValidation.DependencyInjectionExtensions"
