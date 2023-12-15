@@ -2,9 +2,9 @@
 using System.Reflection;
 using FluentValidation.Internal;
 using FluentValidation.Validators;
-using NewDay.Extensions.FunctionsValidationFilter.Rules;
+using FunctionsValidationFilter.Rules;
 
-namespace NewDay.Extensions.FunctionsValidationFilter;
+namespace FunctionsValidationFilter;
 
 internal class ValidatorMapper : IValidatorMapper
 {

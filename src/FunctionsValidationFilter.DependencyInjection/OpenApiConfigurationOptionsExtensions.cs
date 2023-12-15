@@ -3,7 +3,7 @@ using FluentValidation;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using NewDay.Extensions.FunctionsValidationFilter;
+using FunctionsValidationFilter;
 
 namespace Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 

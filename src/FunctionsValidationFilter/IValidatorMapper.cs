@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using FluentValidation.Internal;
-using NewDay.Extensions.FunctionsValidationFilter.Rules;
+using FunctionsValidationFilter.Rules;
 
-namespace NewDay.Extensions.FunctionsValidationFilter;
+namespace FunctionsValidationFilter;
 
 internal interface IValidatorMapper
 {

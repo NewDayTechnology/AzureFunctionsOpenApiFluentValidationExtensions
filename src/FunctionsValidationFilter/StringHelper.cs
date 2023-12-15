@@ -1,4 +1,4 @@
-﻿namespace NewDay.Extensions.FunctionsValidationFilter;
+﻿namespace FunctionsValidationFilter;
 
 internal class StringHelper
 {

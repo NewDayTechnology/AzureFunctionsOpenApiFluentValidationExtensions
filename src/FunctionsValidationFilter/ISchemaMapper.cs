@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using NewDay.Extensions.FunctionsValidationFilter.Rules;
+using FunctionsValidationFilter.Rules;
 
-namespace NewDay.Extensions.FunctionsValidationFilter
+namespace FunctionsValidationFilter
 {
     internal interface ISchemaMapper
     {

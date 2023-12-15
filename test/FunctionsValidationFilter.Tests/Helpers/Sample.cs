@@ -1,4 +1,4 @@
-﻿namespace NewDay.Extensions.FunctionsValidationFilter.Tests;
+﻿namespace FunctionsValidationFilter.Tests;
 
 public class Sample
 {

@@ -1,4 +1,4 @@
-﻿namespace NewDay.Extensions.FunctionsValidationFilter.Rules;
+﻿namespace FunctionsValidationFilter.Rules;
 
 internal class ExclusiveBetweenRule : Rule
 {

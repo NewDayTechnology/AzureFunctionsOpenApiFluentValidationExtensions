@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace NewDay.Extensions.FunctionsValidationFilter
+namespace FunctionsValidationFilter
 {
     /// <summary>
     /// Options to configure FunctionsValidationFilter.

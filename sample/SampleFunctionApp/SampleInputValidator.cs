@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using SampleFunctionApp;
 
-namespace NewDay.Extensions.SampleFunctionApp;
+namespace SampleFunctionApp;
 
 public class SampleInputValidator : AbstractValidator<SampleInput>
 {

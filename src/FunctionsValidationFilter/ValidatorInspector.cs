@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using FluentValidation;
 
-namespace NewDay.Extensions.FunctionsValidationFilter;
+namespace FunctionsValidationFilter;
 
 internal static class ValidatorInspector
 {

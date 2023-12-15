@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
 using Moq;
-using NewDay.Extensions.FunctionsValidationFilter.Rules;
+using FunctionsValidationFilter.Rules;
 
-namespace NewDay.Extensions.FunctionsValidationFilter.Tests;
+namespace FunctionsValidationFilter.Tests;
 
 public class RulesMapperTest
 {

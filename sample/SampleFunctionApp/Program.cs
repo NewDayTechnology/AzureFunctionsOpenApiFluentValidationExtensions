@@ -22,7 +22,7 @@ var host = new HostBuilder()
                     {
                         Name = "sample",
                         Email = "test@example.com",
-                        Url = new Uri("https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter"),
+                        Url = new Uri("https://github.com/NewDayTechnology/FunctionsValidationFilter"),
                     },
                     License = new OpenApiLicense()
                     {

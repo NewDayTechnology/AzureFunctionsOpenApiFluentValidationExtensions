@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
-using NewDay.Extensions.FunctionsValidationFilter.Rules;
+using FunctionsValidationFilter.Rules;
 
-namespace NewDay.Extensions.FunctionsValidationFilter;
+namespace FunctionsValidationFilter;
 
 internal class RulesMapper : IRulesMapper
 {

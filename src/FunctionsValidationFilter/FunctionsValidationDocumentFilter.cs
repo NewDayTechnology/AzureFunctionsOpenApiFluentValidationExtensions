@@ -2,9 +2,9 @@
 using FluentValidation;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.OpenApi.Models;
-using NewDay.Extensions.FunctionsValidationFilter.Rules;
+using FunctionsValidationFilter.Rules;
 
-namespace NewDay.Extensions.FunctionsValidationFilter;
+namespace FunctionsValidationFilter;
 
 /// <inheritdoc/>
 public class FunctionsValidationDocumentFilter : IDocumentFilter

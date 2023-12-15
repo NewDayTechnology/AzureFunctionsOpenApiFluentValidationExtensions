@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace NewDay.Extensions.FunctionsValidationFilter;
+namespace FunctionsValidationFilter;
 
 /// <summary>
 /// Builder for the document filter to be used when using static functions or not using DI.
