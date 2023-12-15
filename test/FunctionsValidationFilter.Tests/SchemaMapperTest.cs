@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
-using Moq;
 using FunctionsValidationFilter.Rules;
+using Moq;
 
 namespace FunctionsValidationFilter.Tests;
 

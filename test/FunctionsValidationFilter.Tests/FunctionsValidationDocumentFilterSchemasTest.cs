@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
+using FunctionsValidationFilter.Rules;
 using Microsoft.OpenApi.Models;
 using Moq;
-using FunctionsValidationFilter.Rules;
 
 namespace FunctionsValidationFilter.Tests
 {

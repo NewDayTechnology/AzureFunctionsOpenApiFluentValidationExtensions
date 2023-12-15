@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Internal;
-using Moq;
 using FunctionsValidationFilter.Rules;
+using Moq;
 
 namespace FunctionsValidationFilter.Tests;
 

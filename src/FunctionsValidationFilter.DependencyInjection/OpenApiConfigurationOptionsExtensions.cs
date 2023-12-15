@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using FluentValidation;
+using FunctionsValidationFilter;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using FunctionsValidationFilter;
 
 namespace Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 
