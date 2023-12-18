@@ -1,6 +1,6 @@
-﻿using FluentValidation;
+﻿using AzureFunctionsOpenApiFluentValidationExtensions.Rules;
+using FluentValidation;
 using FluentValidation.Internal;
-using AzureFunctionsOpenApiFluentValidationExtensions.Rules;
 
 namespace AzureFunctionsOpenApiFluentValidationExtensions;
 

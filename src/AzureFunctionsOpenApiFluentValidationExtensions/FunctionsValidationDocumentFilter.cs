@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using FluentValidation;
 using AzureFunctionsOpenApiFluentValidationExtensions.Rules;
+using FluentValidation;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.OpenApi.Models;
 

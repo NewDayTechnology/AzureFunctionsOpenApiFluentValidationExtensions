@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using FluentValidation.Internal;
 using AzureFunctionsOpenApiFluentValidationExtensions.Rules;
+using FluentValidation.Internal;
 
 namespace AzureFunctionsOpenApiFluentValidationExtensions;
 

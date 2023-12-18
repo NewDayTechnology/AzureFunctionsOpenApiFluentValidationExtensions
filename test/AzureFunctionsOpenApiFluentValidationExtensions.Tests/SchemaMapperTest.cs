@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using AzureFunctionsOpenApiFluentValidationExtensions.Rules;
+﻿using AzureFunctionsOpenApiFluentValidationExtensions.Rules;
+using FluentValidation;
 using Moq;
 
 namespace AzureFunctionsOpenApiFluentValidationExtensions.Tests;
