@@ -17,7 +17,7 @@ Currently, only basic rules are supported and the regex dialect is not translate
 Add to your project:
 
 ```xml
-<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection" Version="0.1.19" />
+<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection" Version="1.0.0" />
 ```
 
 Add to your OpenApi configuration:
@@ -31,7 +31,7 @@ DocumentFilters.AddAzureFunctionsOpenApiFluentValidationExtensions<Startup>();
 Add to your project:
 
 ```xml
-<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection" Version="0.1.19" />
+<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection" Version="1.0.0" />
 ```
 
 In your custom object to define the OpenApi configuration, use `AddAzureFunctionsOpenApiFluentValidationExtensions` on the `DocumentFilters` property.
@@ -70,7 +70,7 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
 Add to your project:
 
 ```xml
-<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions" Version="0.1.19" />
+<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions" Version="1.0.0" />
 ```
 
 If you are not using DI in Azure Functions or using static Functions, you would need to manually register all the validators you are using.
