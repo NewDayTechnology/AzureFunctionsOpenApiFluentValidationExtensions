@@ -4,7 +4,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>10</LangVersion>
-    <AssemblyName>NewDay.Extensions.$(MSBuildProjectName)</AssemblyName>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(AssemblyName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
