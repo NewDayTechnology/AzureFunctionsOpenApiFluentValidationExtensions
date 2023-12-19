@@ -15,8 +15,8 @@
     <PackageReference Include="FluentValidation" Version="11.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FunctionsValidationFilter.DependencyInjection\FunctionsValidationFilter.DependencyInjection.csproj" />
-    <ProjectReference Include="..\..\src\FunctionsValidationFilter\FunctionsValidationFilter.csproj" />
+    <ProjectReference Include="..\..\src\AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection\AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\src\AzureFunctionsOpenApiFluentValidationExtensions\AzureFunctionsOpenApiFluentValidationExtensions.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

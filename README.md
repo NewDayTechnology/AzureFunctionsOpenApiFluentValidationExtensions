@@ -1,4 +1,4 @@
-# FunctionsValidationFilter
+# AzureFunctionsOpenApiFluentValidationExtensions
 
 Decorates the [OpenApi Specification](https://swagger.io/specification/) generated using [Azure Functions OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) with [FluentValidation](https://docs.fluentvalidation.net/en/latest/) rules loaded at runtime.
 
@@ -17,13 +17,13 @@ Currently, only basic rules are supported and the regex dialect is not translate
 Add to your project:
 
 ```xml
-<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.19" />
+<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection" Version="0.1.19" />
 ```
 
 Add to your OpenApi configuration:
 
 ```csharp
-DocumentFilters.AddFunctionsValidationFilter<Startup>();
+DocumentFilters.AddAzureFunctionsOpenApiFluentValidationExtensions<Startup>();
 ```
 
 ## Usage
@@ -31,10 +31,10 @@ DocumentFilters.AddFunctionsValidationFilter<Startup>();
 Add to your project:
 
 ```xml
-<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter.DependencyInjection" Version="0.1.19" />
+<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection" Version="0.1.19" />
 ```
 
-In your custom object to define the OpenApi configuration, use `AddFunctionsValidationFilter` on the `DocumentFilters` property.
+In your custom object to define the OpenApi configuration, use `AddAzureFunctionsOpenApiFluentValidationExtensions` on the `DocumentFilters` property.
 
 ```csharp
 public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
@@ -42,7 +42,7 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
     public OpenApiConfigurationOptions()
     {
         // Add all validators via reflection.
-        DocumentFilters.AddFunctionsValidationFilter<Startup>(services =>
+        DocumentFilters.AddAzureFunctionsOpenApiFluentValidationExtensions<Startup>(services =>
         {
             // Add dependencies required to build the validators.
             // Note the OpenAPI generator doesn't use the DI container.
@@ -70,7 +70,7 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
 Add to your project:
 
 ```xml
-<PackageReference Include="NewDay.Extensions.FunctionsValidationFilter" Version="0.1.19" />
+<PackageReference Include="AzureFunctionsOpenApiFluentValidationExtensions" Version="0.1.19" />
 ```
 
 If you are not using DI in Azure Functions or using static Functions, you would need to manually register all the validators you are using.
@@ -107,10 +107,10 @@ public class OpenApiConfigurationOptions : DefaultOpenApiConfigurationOptions
 
 ### Handling new rules
 
-1. Implement a new rule in [`FunctionsValidationFilter.Rules`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/tree/main/src/FunctionsValidationFilter/Rules) that extend [`Rule`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/blob/main/src/FunctionsValidationFilter/Rules/Rule.cs) and define the required properties. This represents an internal representation of a rule.
+1. Implement a new rule in [`AzureFunctionsOpenApiFluentValidationExtensions.Rules`](https://github.com/NewDayTechnology/AzureFunctionsOpenApiFluentValidationExtensions/tree/main/src/AzureFunctionsOpenApiFluentValidationExtensions/Rules) that extend [`Rule`](https://github.com/NewDayTechnology/AzureFunctionsOpenApiFluentValidationExtensions/blob/main/src/AzureFunctionsOpenApiFluentValidationExtensions/Rules/Rule.cs) and define the required properties. This represents an internal representation of a rule.
 
-1. Add a new case in [`FunctionsValidationFilter.ValidatorMapper`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/blob/main/src/FunctionsValidationFilter/ValidatorMapper.cs) that map from a `FluentValidation` type of a rule to the new modeled rule.
+1. Add a new case in [`AzureFunctionsOpenApiFluentValidationExtensions.ValidatorMapper`](https://github.com/NewDayTechnology/AzureFunctionsOpenApiFluentValidationExtensions/blob/main/src/AzureFunctionsOpenApiFluentValidationExtensions/ValidatorMapper.cs) that map from a `FluentValidation` type of a rule to the new modeled rule.
 
-1. Extend [`FunctionsValidationFilter.FunctionsValidationDocumentFilter`](https://github.com/NewDayTechnology/NewDay.Extensions.FunctionsValidationFilter/blob/main/src/FunctionsValidationFilter/FunctionsValidationDocumentFilter.cs):
+1. Extend [`AzureFunctionsOpenApiFluentValidationExtensions.FunctionsValidationDocumentFilter`](https://github.com/NewDayTechnology/AzureFunctionsOpenApiFluentValidationExtensions/blob/main/src/AzureFunctionsOpenApiFluentValidationExtensions/FunctionsValidationDocumentFilter.cs):
     1. Add a new case in the `ApplySchemas` method for the new rule to set the necessary properties of a field of a schema, based on the rule.
     1. Add a new case in the `ApplySchemasToOperations` method for the new rule to set the necessary properties of a parameter of an operation, based on the rule.
