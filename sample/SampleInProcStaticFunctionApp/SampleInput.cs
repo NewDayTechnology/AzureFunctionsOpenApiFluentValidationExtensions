@@ -1,4 +1,4 @@
-﻿namespace SampleFunctionApp;
+﻿namespace SampleInProcStaticFunctionApp;
 
 public class SampleInput
 {

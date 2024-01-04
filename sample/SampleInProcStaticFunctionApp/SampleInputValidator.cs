@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SampleFunctionApp;
+namespace SampleInProcStaticFunctionApp;
 
 public class SampleInputValidator : AbstractValidator<SampleInput>
 {
