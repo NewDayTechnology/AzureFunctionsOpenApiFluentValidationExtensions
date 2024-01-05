@@ -4,6 +4,7 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SampleFunctionApp;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
@@ -37,7 +38,9 @@ var host = new HostBuilder()
                 ForceHttp = DefaultOpenApiConfigurationOptions.IsHttpForced(),
             };
 
-            options.DocumentFilters.AddAzureFunctionsOpenApiFluentValidationExtensions<Program>();
+            options.DocumentFilters.AddAzureFunctionsOpenApiFluentValidationExtensions<Program>(
+                options => { options.Operations.Add<SampleInput>(nameof(SampleFunction.SampleFunctionWithQuery)); }
+            );
 
             return options;
         });
