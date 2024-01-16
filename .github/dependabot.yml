@@ -1,21 +1,19 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
-  - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "nuget"
+    directory: "/"
     schedule:
       interval: "daily"
-      time: "08:00"
+      time: "06:00"
       timezone: "Europe/London"
     labels:
       - ":game_die: dependencies"
       - ":robot: bot"
     open-pull-requests-limit: 10
     ignore:
-      - dependency-name: "Moq" ## avoid Moq 4.20+
+      ## avoid Moq 4.20+
+      - dependency-name: "Moq"
+      ## Preserve backward compatibility for library consumers
       - dependency-name: "FluentValidation"
       - dependency-name: "FluentValidation.DependencyInjectionExtensions"
+      - dependency-name: "Microsoft.Azure.WebJobs.Extensions.OpenApi.Core"
