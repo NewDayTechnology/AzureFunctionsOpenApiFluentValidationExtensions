@@ -2,6 +2,9 @@
 
 Decorates the [OpenApi Specification](https://swagger.io/specification/) generated using [Azure Functions OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) with [FluentValidation](https://docs.fluentvalidation.net/en/latest/) rules loaded at runtime.
 
+[![AzureFunctionsOpenApiFluentValidationExtensions Nuget](https://img.shields.io/nuget/v/AzureFunctionsOpenApiFluentValidationExtensions?label=AzureFunctionsOpenApiFluentValidationExtensions&logo=nuget)](https://www.nuget.org/packages/AzureFunctionsOpenApiFluentValidationExtensions/)
+[![AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection Nuget](https://img.shields.io/nuget/v/AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection?label=AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection&logo=nuget)](https://www.nuget.org/packages/AzureFunctionsOpenApiFluentValidationExtensions.DependencyInjection/)
+
 ## Motivation
 
 The recommended library for generating the OpenAPI specification for Azure Functions is [Azure Functions OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension). While the library can annotate the model when using `Data Annotations` it doesn't support [FluentValidation](https://docs.fluentvalidation.net/en/latest/).
