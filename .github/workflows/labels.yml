@@ -1,0 +1,20 @@
+name: Check PR Labels
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for "do not merge" label
+        if: contains(github.event.pull_request.labels.*.name, 'do not merge')
+        run: |
+          echo "This PR should not be merged."
+          exit 1
