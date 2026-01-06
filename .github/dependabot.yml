@@ -11,9 +11,66 @@ updates:
       - ":robot: bot"
     open-pull-requests-limit: 10
     ignore:
-      ## avoid Moq 4.20+
+      # Ignore Moq beyond 4.20 - see https://github.com/moq/moq/issues/1370
       - dependency-name: "Moq"
+        versions: [">=4.20.0"]
       ## Preserve backward compatibility for library consumers
       - dependency-name: "FluentValidation"
       - dependency-name: "FluentValidation.DependencyInjectionExtensions"
       - dependency-name: "Microsoft.Azure.WebJobs.Extensions.OpenApi.Core"
+      # MediatR >= v13 requires a commercial license
+      - dependency-name: "MediatR"
+        versions: [">=13.0.0"]
+      # AutoMapper >= v15 requires a commercial license
+      - dependency-name: "AutoMapper"
+        versions: [">=15.0.0"]
+      # Ignore packages that are for different .NET versions
+      - dependency-name: "Microsoft.*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "System.*"
+        update-types: ["version-update:semver-major"]
+      # FluentAssertions >= v8 requires a commercial license
+      - dependency-name: "FluentAssertions"
+        versions: [">=8.0.0"]
+    groups:
+      AutoFixture:
+        patterns:
+          - "AutoFixture"
+          - "AutoFixture.*"
+      Azure:
+        patterns:
+          - "Azure.*"
+      FluentValidation:
+        patterns:
+          - "FluentValidation"
+          - "FluentValidation.*"
+      Microsoft:
+        patterns:
+          - "Microsoft.*"
+      NewDay:
+        patterns:
+          - "NewDay.*"
+      Polly:
+        patterns:
+          - "Polly"
+          - "Polly.*"
+      SpecFlow:
+        patterns:
+          - "SpecFlow"
+          - "SpecFlow.*"
+      Swashbuckle:
+        patterns:
+          - "Swashbuckle.*"
+      System:
+        patterns:
+          - "System.*"
+      XUnit:
+        patterns:
+          - "xunit"
+          - "xunit.*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "Europe/London"
