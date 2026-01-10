@@ -35,7 +35,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal --logger trx --results-directory "TestResults"
     - name: Upload test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: dotnet-results
         path: TestResults
@@ -57,7 +57,7 @@ jobs:
       run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
     - name: Pack
       run: dotnet pack --output ./artifacts --configuration Release -p:Version=$VERSION
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v6
       with:
         name: artifacts
         path: ./artifacts
